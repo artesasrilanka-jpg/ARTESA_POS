@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ARTESA POS — Offline</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+  <div class="brand">
+    <img src="assets/artesa-logo.png" alt="Artesa Logo" class="logo">
+    <div class="title">ARTESA POS</div>
+  </div>
+  <div class="right-info">
+    <input id="searchInput" placeholder="Search by name or SKU..." />
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-target="posTab">POS</button>
+  <button class="tab-btn" data-target="inventoryTab">Inventory</button>
+  <button class="tab-btn" data-target="transactionsTab">Transactions</button>
+</nav>
+
+<main class="main">
+  <section id="posTab" class="tab active">
+    <div class="left-col">
+      <h2>Products</h2>
+      <div id="productGrid" class="product-grid"></div>
+    </div>
+    <div class="right-col">
+      <h2>Cart</h2>
+      <div id="cartList" class="cart-list"></div>
+      <div class="totals">
+        <div>Subtotal: <span id="subtotal">$0.00</span></div>
+        <div>GST (15%): <span id="gst">$0.00</span></div>
+        <div class="grand">TOTAL: <span id="total">$0.00</span></div>
+      </div>
+      <div class="actions">
+        <button id="payCash">CASH</button>
+        <button id="payCard">CARD</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="inventoryTab" class="tab">
+    <h2>Inventory</h2>
+    <form id="productForm" class="product-form">
+      <input id="p_sku" placeholder="SKU (unique)" required />
+      <input id="p_name" placeholder="Name" required />
+      <input id="p_price" type="number" step="0.01" placeholder="Price" required />
+      <input id="p_stock" type="number" step="1" placeholder="Stock" required />
+      <input id="p_markup" type="number" step="0.1" placeholder="Markup (%)" value="0" />
+      <div class="form-actions">
+        <button type="submit">Save Product</button>
+        <button type="button" id="clearForm">Clear</button>
+      </div>
+    </form>
+    <div id="inventoryList" class="inventory-list"></div>
+  </section>
+
+  <section id="transactionsTab" class="tab">
+    <h2>Transactions</h2>
+    <div id="transactionsList" class="transactions-list"></div>
+    <div id="summary" class="summary"></div>
+  </section>
+</main>
+
+<footer class="footer">ARTESA POS — Offline. Data stored locally in your browser.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
